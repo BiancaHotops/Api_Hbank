@@ -18,5 +18,6 @@ rota.register('pgto_emprestimo', views.PgtoEmprestimoViewSet)
 rota.register('extrato', views.ExtratoViewSet)
 rota.register('fatura', views.FaturaViewSet)
 rota.register('imagens', views.ImagemViewSet)
+rota.register('adiconar-imagens', views.AdicionarImagemViewSet)
 
 urlpatterns= rota.urls

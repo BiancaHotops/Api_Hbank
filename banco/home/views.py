@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Bandeiras, Cartoes, Cliente, Conta, Emprestimos, Endereco, Extrato, Fatura, Imagem, Pgto_Emprestimos, Tipos_cliente, Transferencia, Usuario
-from .serializer import BandeiraSerializer, CartaoSerializer, ClienteSerializer, ContaSerializer, EmprestimoSerializer, EnderecoSerializer, ExtratoSerializer, FaturaSerializer, ImagemSerializer, PgtoEmprestimoSerializer, TipoClienteSerializer, TransferenciaSerializer, UserSerializer
+from .serializer import AdicionarImagemSerializer, BandeiraSerializer, CartaoSerializer, ClienteSerializer, ContaSerializer, EmprestimoSerializer, EnderecoSerializer, ExtratoSerializer, FaturaSerializer, ImagemSerializer, PgtoEmprestimoSerializer, TipoClienteSerializer, TransferenciaSerializer, UserSerializer
 
 
 class UsuarioViewSet(viewsets.ModelViewSet):
@@ -55,6 +55,10 @@ class FaturaViewSet(viewsets.ModelViewSet):
 class ImagemViewSet(viewsets.ModelViewSet):
     queryset = Imagem.objects.all()
     serializer_class = ImagemSerializer
+
+class AdicionarImagemViewSet(viewsets.ModelViewSet):
+    queryset = Imagem.objects.all()
+    serializer_class = AdicionarImagemSerializer
        
 
     

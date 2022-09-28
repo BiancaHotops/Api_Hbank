@@ -1,6 +1,7 @@
 from distutils.command.upload import upload
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from pictures.models import PictureField
 
 
 class Usuario (models.Model):
@@ -119,5 +120,5 @@ class Fatura (models.Model):
 
 class Imagem(models.Model):
     titulo = models.CharField(max_length=255)
-    foto = models.ImageField(upload_to='home/imagens')
+    foto = PictureField(upload_to='home/imagens')
     

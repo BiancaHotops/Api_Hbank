@@ -1,6 +1,7 @@
 from dataclasses import fields
 from rest_framework import serializers
 from .models import Bandeiras, Cartoes, Cliente, Conta, Emprestimos, Endereco, Extrato, Fatura, Imagem, Pgto_Emprestimos, Tipos_cliente, Transferencia, Usuario
+from pictures.contrib.rest_framework import PictureField
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -66,6 +67,14 @@ class ImagemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Imagem
         fields = ['id', 'titulo', 'foto']
+        
+    foto = PictureField()
+    
+class AdicionarImagemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Imagem
+        fields = ['id', 'titulo', 'foto']
+        
 
 
         
