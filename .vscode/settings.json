@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/332e2604-74c0-48ea-ae9a-fc5418de7895/AppServices/subscriptions/332e2604-74c0-48ea-ae9a-fc5418de7895/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/BancoApi",
+    "appService.deploySubpath": "banco"
+}
