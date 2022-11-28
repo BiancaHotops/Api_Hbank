@@ -6,7 +6,7 @@ from pictures.contrib.rest_framework import PictureField
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
-        fields = ['id','cpf','senha', 'bloqueio_acesso']
+        fields = ['id','nome','email','cpf','senha', 'bloqueio_acesso']
 
 class EnderecoSerializer(serializers.ModelSerializer):
     class Meta:

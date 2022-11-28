@@ -5,11 +5,11 @@ from pictures.models import PictureField
 
 
 class Usuario (models.Model):
+    nome= models.CharField(max_length=30)
+    email= models.EmailField(unique=True)
     cpf= models.CharField(max_length=11)
-    senha = models.CharField(max_length= 15,
-        validators=[MinValueValidator(6, message='O mínimo é 6 digitos'), MaxValueValidator(15, 'O máximo é 15 digitos')]
-    )
-    bloqueio_acesso = models.BooleanField()
+    senha= models.CharField(max_length= 15)
+    bloqueio_acesso= models.BooleanField()
     
     def __str__(self):
         return self.cpf
