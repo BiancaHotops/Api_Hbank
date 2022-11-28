@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'banco',
     'pictures',
+    'corsheaders',
 ]
 
 PICTURES = {
@@ -65,6 +66,7 @@ PICTURES = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -93,6 +95,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'banco.wsgi.application'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://bancoapi.azurewebsites.net",
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
