@@ -75,7 +75,10 @@ class AdicionarImagemSerializer(serializers.ModelSerializer):
         model = Imagem
         fields = ['id', 'titulo', 'foto']
         
-
+class LoginSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = '__all__'
 
         
         
