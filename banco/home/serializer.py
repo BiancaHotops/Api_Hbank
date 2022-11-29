@@ -1,12 +1,17 @@
 from dataclasses import fields
 from rest_framework import serializers
-from .models import Bandeiras, Cartoes, Cliente, Conta, Emprestimos, Endereco, Extrato, Fatura, Imagem, Pgto_Emprestimos, Tipos_cliente, Transferencia, Usuario
+from .models import Bandeiras, Cartoes, Cliente, Conta, Emprestimos, Endereco, Extrato, Fatura, Imagem, Pgto_Emprestimos, Tipos_cliente, Transferencia, Usuario, PedidoCartao
 from pictures.contrib.rest_framework import PictureField
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
         fields = ['id','nome','email','cpf','senha', 'bloqueio_acesso']
+
+class PedidoCartaoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PedidoCartao
+        fields = ['id','nome', 'email', 'telefone', 'cidade', 'cpf', 'salario', 'senha']
 
 class EnderecoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -75,10 +80,10 @@ class AdicionarImagemSerializer(serializers.ModelSerializer):
         model = Imagem
         fields = ['id', 'titulo', 'foto']
         
-class LoginSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Usuario
-        fields = '__all__'
+# class LoginSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Usuario
+#         fields = '__all__'
 
         
         

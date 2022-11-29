@@ -19,6 +19,7 @@ rota.register('extrato', views.ExtratoViewSet)
 rota.register('fatura', views.FaturaViewSet)
 rota.register('imagens', views.ImagemViewSet)
 rota.register('adiconar-imagens', views.AdicionarImagemViewSet)
-rota.register('login', views.LoginViewSet)
+# rota.register('login', views.LoginViewSet)
+rota.register('pedido', views.PedidoCartaoViewSet)
 
 urlpatterns= rota.urls

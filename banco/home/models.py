@@ -14,6 +14,18 @@ class Usuario (models.Model):
     def __str__(self):
         return self.cpf
 
+class PedidoCartao (models.Model):
+    nome= models.CharField(max_length=30)
+    email= models.EmailField(unique=True)
+    telefone = models.CharField(max_length=20)
+    cidade = models.CharField(max_length=20)
+    cpf= models.CharField(max_length=11)
+    salario =models.DecimalField(max_digits=10, decimal_places=2)
+    senha= models.CharField(max_length= 6)
+    
+    def __str__(self):
+        return self.cpf
+
 class Endereco (models.Model):
     rua = models.CharField(max_length=100)
     numero = models.PositiveSmallIntegerField()
