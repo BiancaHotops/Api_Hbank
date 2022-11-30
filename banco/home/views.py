@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import Bandeiras, Cartoes, Cliente, Conta, Emprestimos, Endereco, Extrato, Fatura, Imagem, Pgto_Emprestimos, Tipos_cliente, Transferencia, Usuario, PedidoCartao
-from .serializer import AdicionarImagemSerializer, BandeiraSerializer, CartaoSerializer, ClienteSerializer, ContaSerializer, EmprestimoSerializer, EnderecoSerializer, ExtratoSerializer, FaturaSerializer, ImagemSerializer, PgtoEmprestimoSerializer, TipoClienteSerializer, TransferenciaSerializer, UserSerializer, PedidoCartaoSerializer
+from .serializer import AdicionarImagemSerializer, BandeiraSerializer, CartaoSerializer, ClienteSerializer, ContaSerializer, EmprestimoSerializer, EnderecoSerializer, ExtratoSerializer, FaturaSerializer, ImagemSerializer, PgtoEmprestimoSerializer, TipoClienteSerializer, TransferenciaSerializer, UserSerializer, PedidoCartaoSerializer, LoginSerializer
 
 
 class UsuarioViewSet(viewsets.ModelViewSet):
@@ -65,23 +65,23 @@ class AdicionarImagemViewSet(viewsets.ModelViewSet):
     queryset = Imagem.objects.all()
     serializer_class = AdicionarImagemSerializer
        
-# class LoginViewSet(viewsets.ModelViewSet):
-#     queryset = Usuario.objects.all()
-#     serializer_class = LoginSerializer
+class LoginViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = LoginSerializer
 
-#     def list(self, request, *args, **kwargs):
-#         return super().list(request, *args, **kwargs)
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
-#     def create(self, request, *args, **kwargs):
-#         listaUser = Usuario.objects.all()
-#         encontrou = False
-#         for c in listaUser:
-#             if self.request.data['cpf'] == c.cpf and self.request.data['senha'] == c.senha :
-#                 _user = Usuario.objects.get(pk=c.pk)
-#                 serializer = LoginSerializer(_user)
-#                 return Response(serializer.data, 200)
+    def create(self, request, *args, **kwargs):
+        listaUser = Usuario.objects.all()
+        encontrou = False
+        for c in listaUser:
+            if self.request.data['cpf'] == c.cpf and self.request.data['senha'] == c.senha :
+                _user = Usuario.objects.get(pk=c.pk)
+                serializer = LoginSerializer(_user)
+                return Response({ 'auth': True }, 200)
         
-#         return Response({ 'auth': False }, 401)
+        return Response({ 'auth': False }, 401)
     
 
 
